@@ -1,0 +1,26 @@
+{
+  "name": "excel-addin-vue",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "start:desktop": "office-addin-debugging start manifest.xml desktop",
+    "start:web": "office-addin-debugging start manifest.xml web",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "validate": "office-toolbox validate -m manifest.xml"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.25",
+    "@types/office-js-preview": "^1.0.297",
+    "office-addin-debugging": "^4.3.9",
+    "office-toolbox": "^0.1.1",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.5",
+    "vue-tsc": "^0.34.7"
+  }
+}
