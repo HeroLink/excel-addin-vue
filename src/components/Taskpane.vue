@@ -1,11 +1,22 @@
 <script setup lang="ts">
-/* global window*/
-function onSetColor() {
-    window.Excel.run(async (context) => {
-        const range = context.workbook.getSelectedRange();
-        range.format.fill.color = "green";
-        await context.sync();
-    });
+import { dynamicRegisterCF } from "@/utils/custom-functions/register";
+
+async function onRegister() {
+    // window.Excel.run(async (context) => {
+    //     const range = context.workbook.getSelectedRange();
+    //     range.format.fill.color = "green";
+    //     await context.sync();
+    // });
+
+    await fetch("https://localhost:3000/tests/custom-functions/functions.ts")
+        .then((res) => {
+            console.log("Fetch function.ts", res);
+            return res.text();
+        })
+        .then((data) => {
+            // console.log("Read functions.ts", data);
+            dynamicRegisterCF(data);
+        });
 }
 </script>
 
@@ -19,12 +30,11 @@ function onSetColor() {
         <div class="content-main">
             <div class="padding">
                 <p>
-                    Choose the button below to set the color of the selected
-                    range to green.
+                    Click to dynamically register custom functions.
                 </p>
                 <br />
                 <h3>Try it out</h3>
-                <button @click="onSetColor">Set color</button>
+                <button @click="onRegister">Register</button>
             </div>
         </div>
     </div>

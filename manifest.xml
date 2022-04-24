@@ -24,8 +24,8 @@
   </Requirements>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-  <IconUrl DefaultValue="https://localhost:3000/assets/images/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/images/icon-80.png"/>
+  <IconUrl DefaultValue="https://localhost:3200/assets/images/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:3200/assets/images/icon-80.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
   <!--<SupportUrl DefaultValue="[Insert the URL of a page that provides support information for the app]" />-->
@@ -41,7 +41,7 @@
     <Host Name="Workbook" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:3000/index.html" />
+    <SourceLocation DefaultValue="https://localhost:3200" />
   </DefaultSettings>
   <!-- End TaskPane Mode integration.  -->
 
@@ -56,6 +56,10 @@
       <!-- Excel host is Workbook, Word host is Document, and PowerPoint host is Presentation. -->
       <!-- Make sure the hosts you override match the hosts declared in the top section of the manifest. -->
       <Host xsi:type="Workbook">
+        <!-- shared JavaScript runtime -->
+        <Runtimes>
+          <Runtime resid="Taskpane.Url" lifetime="long" />
+        </Runtimes>
         <AllFormFactors>
           <ExtensionPoint xsi:type="CustomFunctions">
             <Script>
@@ -135,28 +139,28 @@
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/images/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/images/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/images/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3200/assets/images/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3200/assets/images/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3200/assets/images/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Functions.Script.Url" DefaultValue="https://localhost:3000/assets/custom-functions/functions.js"/>
-        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://localhost:3000/assets/custom-functions/functions.json"/>
+        <bt:Url id="Functions.Script.Url" DefaultValue="https://localhost:3200/assets/custom-functions/functions.ts"/>
+        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://localhost:3200/assets/custom-functions/functions.json"/>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/index.html" />
-        <!-- <bt:Url id="Functions.Page.Url" DefaultValue="https://localhost:3000/functions.html"/> -->
-        <!-- <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html" /> -->
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3200" />
+        <!-- <bt:Url id="Functions.Page.Url" DefaultValue="https://localhost:3200/functions.html"/> -->
+        <!-- <bt:Url id="Commands.Url" DefaultValue="https://localhost:3200/commands.html" /> -->
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
-        <!-- <bt:String id="Functions.Namespace" DefaultValue="XLP"/> -->
+        <bt:String id="Functions.Namespace" DefaultValue="XLP"/>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!" />
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group" />
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane" />
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Add-in Vue" />
       </bt:ShortStrings>
       <!-- LongStrings max characters==250. -->
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started." />
+        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Add-in Vue' button to get started." />
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
       </bt:LongStrings>
     </Resources>

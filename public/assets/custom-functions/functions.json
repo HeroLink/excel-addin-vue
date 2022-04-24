@@ -1,4 +1,17 @@
 {
-    "$schema": "https://developer.microsoft.com/en-us/json-schemas/office-js/custom-functions.schema.json",
-    "functions": []
+    "functions": [
+        {
+            "description": "This recognizer will find any dimension presented. E.g. \"My house is 20 km from my school\".\nLimitations of calling Excel JavaScript APIs through a custom function\n=XLP.GETDIMENSION(\"My house is 20 km from my school\")\n=XLP.GETDIMENSION(\"B2\")",
+            "id": "GETDIMENSION",
+            "name": "GETDIMENSION",
+            "parameters": [
+                {
+                    "description": "The address of the cell contains dimensions.",
+                    "name": "address",
+                    "type": "string"
+                }
+            ],
+            "result": {}
+        }
+    ]
 }
