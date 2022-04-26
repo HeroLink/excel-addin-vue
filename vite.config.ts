@@ -3,16 +3,20 @@ import vue from "@vitejs/plugin-vue";
 import * as fs from "fs";
 import { resolve } from "path";
 import * as os from "os";
-import { generate } from "custom-functions-metadata/lib/commands";
+import CFPlugin from "./src/utils/custom-functions/plugin";
 
 const homedir = os.homedir();
+
+// generate custom functions typescript and json file
 const input = resolve(__dirname, "public/assets/custom-functions/functions.ts");
-const outpout = resolve(__dirname, "public/assets/custom-functions/functions.json");
-generate(input, outpout);
+const output = resolve(
+    __dirname,
+    "public/assets/custom-functions/functions.json"
+);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [vue()],
+    plugins: [vue(), CFPlugin(input, output)],
     resolve: {
         alias: {
             "@": resolve(__dirname, "src"), // path alias
@@ -31,5 +35,16 @@ export default defineConfig({
             ),
         },
         port: 3200,
+    },
+    build: {
+        rollupOptions: {
+            input: {
+                taskpane: resolve(__dirname, "public/index.html"),
+                functions: input,
+            },
+            output: {
+                entryFileNames: "[name].js",
+            },
+        },
     },
 });

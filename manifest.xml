@@ -41,7 +41,7 @@
     <Host Name="Workbook" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:3200" />
+    <SourceLocation DefaultValue="https://localhost:3200/index.html" />
   </DefaultSettings>
   <!-- End TaskPane Mode integration.  -->
 
@@ -147,7 +147,7 @@
         <bt:Url id="Functions.Script.Url" DefaultValue="https://localhost:3200/assets/custom-functions/functions.ts"/>
         <bt:Url id="Functions.Metadata.Url" DefaultValue="https://localhost:3200/assets/custom-functions/functions.json"/>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3200" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3200/index.html" />
         <!-- <bt:Url id="Functions.Page.Url" DefaultValue="https://localhost:3200/functions.html"/> -->
         <!-- <bt:Url id="Commands.Url" DefaultValue="https://localhost:3200/commands.html" /> -->
       </bt:Urls>

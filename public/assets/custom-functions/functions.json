@@ -12,6 +12,19 @@
                 }
             ],
             "result": {}
+        },
+        {
+            "description": "Return an entity",
+            "id": "GETENTITY",
+            "name": "GETENTITY",
+            "parameters": [
+                {
+                    "description": "The address of the cell.",
+                    "name": "address",
+                    "type": "string"
+                }
+            ],
+            "result": {}
         }
     ]
 }

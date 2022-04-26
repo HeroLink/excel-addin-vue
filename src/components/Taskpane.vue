@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { dynamicRegisterCF } from "@/utils/custom-functions/register";
 
-async function onRegister() {
+async function onClick() {
     // window.Excel.run(async (context) => {
     //     const range = context.workbook.getSelectedRange();
     //     range.format.fill.color = "green";
@@ -24,17 +24,14 @@ async function onRegister() {
     <div class="content">
         <div class="content-header">
             <div class="padding">
-                <h1>Welcome</h1>
+                <h2>Create an entity cell from Microsoft Recognizers Text.</h2>
             </div>
         </div>
         <div class="content-main">
             <div class="padding">
-                <p>
-                    Click to dynamically register custom functions.
-                </p>
-                <br />
-                <h3>Try it out</h3>
-                <button @click="onRegister">Register</button>
+                <h3>Excel add-in in Vue3 + TypeScript + Vite.</h3>
+                <p>Click to dynamically register custom functions.</p>
+                <button @click="onClick">Run</button>
             </div>
         </div>
     </div>

@@ -8,6 +8,7 @@
     "preview": "vite preview",
     "validate": "office-toolbox validate -m manifest.xml",
     "start": "office-addin-debugging start manifest.xml desktop",
+    "start-with-build": "npm run build && office-addin-debugging start manifest.xml desktop",
     "test": "vitest"
   },
   "dependencies": {
